@@ -1,56 +1,24 @@
 
-const carros = [
-    {
-        marca: 'Seat',
-        modelo: 'Fr',
-        anio: 2018,
-        nombre: 'Leon',
-        client: {
-            name: 'Gustavo',
-            apellido: 'Rodriguez'
-        }
-    },
-    {
-        marca: 'Seat',
-        modelo: 'Excellense',
-        anio: 2018,
-        nombre: 'Arona',
-        client: {
-            name: 'Gustavo',
-            apellido: 'Rodriguez'
-        }
-    },
-    {
-        marca: 'Cupra',
-        modelo: 'Cupra',
-        anio: 2018,
-        nombre: 'Ateca',
-        client: {
-            name: 'Gustavo',
-            apellido: 'Rodriguez'
-        }
-    },
-    {
-        marca: 'Cupra',
-        modelo: 'Electrico',
-        anio: 2018,
-        nombre: 'Moto',
-        client: {
-            name: 'Gustavo',
-            apellido: 'Rodriguez'
-        }
-    }
-];
+/*request
+    .then(response => response.json())
+    .then(data => console.log(data));
+*/
 
-console.log(carros);
+const findAllUsers = async() => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const users = await response.json();
+    const ul = document.createElement('ul');
 
-const marcasCarros = carros.map(i => {
-    return i.marca;
-});
+    users.forEach(element => {
+        const li = document.createElement('li');
+        li.innerText = element.name;
+        ul.append(li);
+        console.log(element.name);
+    });
 
-const nombresCarros = carros.map(i => {
-    return i.client.name;
-});
+    document.getElementById('root').append(ul);
+}
 
-console.log(marcasCarros);
-console.log(nombresCarros);
+const users = await findAllUsers();
+//console.log(users);
+console.log('Prueba de delay');

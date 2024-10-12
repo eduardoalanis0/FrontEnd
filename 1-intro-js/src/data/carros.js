@@ -1,16 +1,17 @@
-
 const carros = [
     {
+        id: 1,
         marca: 'Seat',
         modelo: 'Fr',
         anio: 2018,
         nombre: 'Leon',
         client: {
-            name: 'Gustavo',
+            name: 'Gustavoo',
             apellido: 'Rodriguez'
         }
     },
     {
+        id: 2,
         marca: 'Seat',
         modelo: 'Excellense',
         anio: 2018,
@@ -21,6 +22,7 @@ const carros = [
         }
     },
     {
+        id: 3,
         marca: 'Cupra',
         modelo: 'Cupra',
         anio: 2018,
@@ -31,6 +33,7 @@ const carros = [
         }
     },
     {
+        id: 4,
         marca: 'Cupra',
         modelo: 'Cupra',
         anio: 2018,
@@ -41,6 +44,7 @@ const carros = [
         }
     },
     {
+        id: 5,
         marca: 'Cupra',
         modelo: 'Electrico',
         anio: 2018,
@@ -52,15 +56,34 @@ const carros = [
     }
 ];
 
-console.log(carros);
+const carroPorNombre = (nombreCliente) => {
+    return carros.find(i => i.client.name === nombreCliente);
+}
 
-const marcasCarros = carros.map(i => {
-    return i.marca;
-});
 
-const nombresCarros = carros.map(i => {
-    return i.client.name;
-});
+const carroPorId = (id) => {
+    return carros.find(i => i.id === id)
+};
 
-console.log(marcasCarros);
-console.log(nombresCarros);
+const findCarById = (id) =>{
+
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const test = carroPorId(id);
+
+            if(test){
+                resolve(test);
+            }else{
+                reject('Error> No se encontro el carro');
+            }
+        }, 3000);
+    });
+    return promise;
+};
+
+export {
+    carros,
+    carroPorNombre as default,
+    carroPorId,
+    findCarById
+}

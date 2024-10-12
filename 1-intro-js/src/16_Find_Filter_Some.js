@@ -1,6 +1,7 @@
 
 const carros = [
     {
+        id: 1,
         marca: 'Seat',
         modelo: 'Fr',
         anio: 2018,
@@ -11,6 +12,7 @@ const carros = [
         }
     },
     {
+        id: 2,
         marca: 'Seat',
         modelo: 'Excellense',
         anio: 2018,
@@ -21,6 +23,7 @@ const carros = [
         }
     },
     {
+        id: 3,
         marca: 'Cupra',
         modelo: 'Cupra',
         anio: 2018,
@@ -31,6 +34,7 @@ const carros = [
         }
     },
     {
+        id: 4,
         marca: 'Cupra',
         modelo: 'Cupra',
         anio: 2018,
@@ -41,6 +45,7 @@ const carros = [
         }
     },
     {
+        id: 5,
         marca: 'Cupra',
         modelo: 'Electrico',
         anio: 2018,
@@ -64,3 +69,16 @@ const nombresCarros = carros.map(i => {
 
 console.log(marcasCarros);
 console.log(nombresCarros);
+
+//const carroPorNombre = carros.find(i => i.nombre === 'Formentor')
+const carroPorNombre = carros.find(i => i.client.name === 'Gustavo')
+
+console.log(carroPorNombre);
+
+const carroFilter = carros.filter(i => i.id > 2)
+
+console.log(carroFilter);
+
+const carroSome = carros.some(i => i.client.name === 'Gustavo')
+
+console.log(carroSome);
